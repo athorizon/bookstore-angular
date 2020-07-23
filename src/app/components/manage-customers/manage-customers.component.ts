@@ -11,5 +11,18 @@ export class ManageCustomersComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  checkAddCustomer: boolean = false;
+  checkManageCustomer: boolean = false;
+  public toggleAddCustomer(): void {
+    if (this.checkAddCustomer == false) {
+      this.checkAddCustomer = true;
+      this.checkManageCustomer = false;
+    }
+  }
+  public toggleManageCustomer(): void {
+    if (this.checkManageCustomer == false) {
+      this.checkAddCustomer = false;
+      this.checkManageCustomer = true;
+    }
+  }
 }
