@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CustomerInformation } from '../models/customer-information';
 
 @Injectable({
   providedIn: 'root'
@@ -25,4 +26,5 @@ export class ManageUsersService {
   {
     return this.http.get("http://localhost:8083/customerlogin?email="+email+"&password="+password);
   }
+ 
 }

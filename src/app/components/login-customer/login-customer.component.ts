@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators, NgForm } from '@angular/forms';
 import { ManageUsersService } from 'src/app/services/manage-users.service';
 import { CustomerInformation } from 'src/app/models/customer-information';
 
@@ -9,25 +9,42 @@ import { CustomerInformation } from 'src/app/models/customer-information';
   styleUrls: ['./login-customer.component.css']
 })
 export class LoginCustomerComponent implements OnInit {
-  loginForm:FormGroup;
-  customer:CustomerInformation;
-  constructor(private formBuilder:FormBuilder,private service:ManageUsersService) { 
-    this.loginForm = this.formBuilder.group({
-      email: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z]+.[a-zA-Z]+$")]),
-      password: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-Z]+@[0-9]*$")]),
-    });
+ 
+  customer:any;
+  email:string;
+  password:string;
+  isSubmitted: boolean = false;
+  checkError:boolean=false;
+  checkInfo:boolean=false;
+  errorMessage:string;
+  constructor(private service:ManageUsersService) { 
+    
   }
 
   ngOnInit(): void {
   }
-  onSubmit()
+  onSubmit(form:NgForm)
   {
-    this.service.loginCustomer(this.loginForm.value.email,this.loginForm.value.password).subscribe(
+    console.log(this.email);
+    console.log(this.password);
+    this.checkInfo=false;
+    this.checkError=false;
+    this.service.loginAdmin(this.email,this.password).subscribe(
     (data)=>
-    { this.customer=data;
-       //localStorage.setItem(this.customer, data);
+    { 
+      form.reset();
+      this.customer=data;
+      this.checkInfo=true;
+      this.checkError=false;
+      alert("LoggedIn Succesfully")
+      console.log(this.customer);
+      // window.location.href="/manageadmin";
     },
+    
     (error)=>
-    {});
+    {this.errorMessage=error.error;
+      this.checkError=true;
+      this.checkInfo=false;
+    });
   }
 }

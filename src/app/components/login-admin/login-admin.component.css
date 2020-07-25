@@ -1,6 +1,7 @@
-div {
+/* div {
     border-radius: 3px;
-    background-color: #f2f2f2;
+    float: initial;
+    background-color: rgb(176, 188, 199);
     padding: 20px;
   }
   input{
@@ -8,7 +9,37 @@ div {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(10, 1, 1);
     border-radius: 4px;
     box-sizing: border-box;
-  }
+  } */
+
+  
+#btn
+{
+    float: right;
+}
+
+#submit{
+    background-color: #313a5a;
+    color: white;
+    border-radius: 10%;
+    padding:1%; 
+    
+}
+
+#formData{
+    background-color:rgb(176, 188, 199);
+    width: 90%;
+    height: 90%;
+    
+}
+b{
+    font-size: 120%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
