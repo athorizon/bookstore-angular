@@ -83,23 +83,22 @@
 
 
 
-    <div id="manage admin" *ngIf="checkManageAdmin">
-      <table class="table">
-        <thead class="thead-dark">
+    <div  class="container" *ngIf="checkManageAdmin">
+      <table class="table table-borderless">
+        <thead>
           <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Email Address</th>
-            <th>Update</th>
-            <th>Delete</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tr *ngFor="let admin of admins">
           <th>{{admin.adminId}}</th>
           <th>{{admin.fullName}}</th>
           <th>{{admin.email}}</th>
-          <th><button type="button" class="btn btn-primary">update</button></th>
-          <th><button type="button" class="btn btn-primary">delete</button></th>
+          <th><button type="button" class="btn btn-primary">update</button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger">delete</button></th>
         </tr>
       </table>
     </div>

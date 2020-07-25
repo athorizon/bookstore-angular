@@ -14,4 +14,15 @@ export class ManageUsersService {
   {
     return this.http.get("http://localhost:8083/admin/getallusers/101")
   }
+  
+
+  loginAdmin(email:string, password:string)
+  {
+    return this.http.get("http://localhost:8083/adminlogin?email="+email+"&password="+password);
+  }
+
+  loginCustomer(email:string, password:string)
+  {
+    return this.http.get("http://localhost:8083/customerlogin?email="+email+"&password="+password);
+  }
 }

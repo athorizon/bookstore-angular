@@ -8,4 +8,5 @@ export class CustomerInformation {
     zipCode:number;
     country:string;
     regsiterDate:string;
+    constructor(){};
 }

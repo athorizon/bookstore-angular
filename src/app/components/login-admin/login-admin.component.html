@@ -1,0 +1,23 @@
+<div class="container form-group" text-align="center" align="center">
+    <h1 class="text-center">Login Here!</h1>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="username">Username</label>&nbsp;
+        <input type="text" formControlName="email" class="form-control" />
+        <div *ngIf="loginForm.get('email').errors  && isSubmitted">
+            <div *ngIf="loginForm.get('email').hasError('required')">
+              <span style="color:blue;">Username is required</span>
+            </div></div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>&nbsp;
+        <input type="password" formControlName="password" class="form-control"/>
+        <div *ngIf="loginForm.get('password').errors  && isSubmitted">
+            <div *ngIf="loginForm.get('password').hasError('required')">
+              <span style="color:blue;">Password is required</span>
+            </div></div>
+    </div>
+    <div class="form-group">
+       <button type="submit" class="btn btn-danger btn-lg">LOGIN</button>
+    </div>
+</form></div>
